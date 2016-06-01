@@ -1,1 +1,10 @@
+05/31/16
+After having a discussion with Mr.Brown, the team went off to fix their proposal.
+Zuhra and Aleks decided the rough structure of the potential calendar.
 
+06/01/16
+Zuhra:
+  Wrote the NODE (named "Day") class
+  Wrote half the LINKED LIST (named "Calendar") class
+  Wrote the setup page but there is a glitch
+  She uploaded the code and is waiting for her team to look over it and hopefully figure out how to fix it. 
