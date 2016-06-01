@@ -8,7 +8,8 @@ void make() {
 Calendar i = new Calendar();
 for (int i = 0; i<7; i++) {
      for (int j = 0; j < 7; j++) {
-       Day<String> = new Day<String> ("hey", null);
+       Day<String> tmp = new Day<String> ("hey", null);
+       i.add(tmp);
 }}}
 
 void draw() {

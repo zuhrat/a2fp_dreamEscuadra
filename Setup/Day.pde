@@ -25,5 +25,6 @@ public class Day<T> {
   public Day setNext( Day newNext ) {
     Day foo = getNext();
     _nextNode = newNext;
-    return foo; }
+    return foo;}
+    
 }
