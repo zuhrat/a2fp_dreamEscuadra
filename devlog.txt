@@ -8,3 +8,5 @@ Zuhra:
   Wrote half the LINKED LIST (named "Calendar") class
   Wrote the setup page but there is a glitch
   She uploaded the code and is waiting for her team to look over it and hopefully figure out how to fix it. 
+6/4/16:
+  Created calendar grid and bumbering in setup.
