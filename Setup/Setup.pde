@@ -1,26 +1,12 @@
-//This class is the setup class where once we hit play, everything in this class is demonstrated
+//First calendar would be the month of january
+Calendar X = new Calendar (1, 1, 2010);
 
-void setup() {
-  size(700, 700); 
-  background (-1);}
+//Since calendar is a linked list, i am adding as many nodes (days) in the month
+void build(){
+  for (int i=1; i <= X._numberofdays; i++){
+    Day tmp = new Day (i, null);
+    X.add(tmp);}}
 
-void make() {
-Calendar i = new Calendar();
-for (int i = 0; i<7; i++) {
-     for (int j = 0; j < 7; j++) {
-       Day<String> tmp = new Day<String> ("hey", null);
-       i.add(tmp);
-}}}
-
-void draw() {
-  int i = 0;
-  int j = 0;
-    for (Day<String> x : Calendar){
-       //int index = i * j*10;
-       rect(i*100, j*100, 100, 100);
-       pushStyle();
-       fill(255, 0, 0);
-       //text(index, i*50+20, j*50+20);
-       popStyle();
-       i++;
-       j++;}}
+void setup(){
+  size(900, 900);
+  background(-1);}
