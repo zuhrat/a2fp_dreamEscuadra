@@ -9,38 +9,22 @@ void build(){
  Day tmp = new Day (i, null);
   X.add(tmp);}}
 void draw(){
+  int x = 0;
+  int y = 0;
   background (255,255,255);
   stroke(0,0,0);
-
-  float distanceBetweenHorizontalLines = (float)height/nbOfHorizontalLines;
-  float distanceBetweenVerticalLines = (float)width/nbOfVerticalLines;
-
-  for(int i = 0; i < nbOfHorizontalLines; i++)
-  {
-   line(0, i*distanceBetweenHorizontalLines, width, i*distanceBetweenHorizontalLines);
-
-
-  }
-
-  for(int i = 0; i < nbOfVerticalLines; i++)
-  {
-    line (i*distanceBetweenVerticalLines,0,i*distanceBetweenVerticalLines, height);
-  }
-  int z=1;
-  while(z<=31){
-  for(int f =30; f< 900;f+=900/5){
-  for(int i = 0; i<900; i+=900/7){
- 
- textSize(32);
- text(z, i, f); 
- fill(50);
-  z++;
+  for (int i = 0; i < 7; i++){
+    for (int j = 1; j < 7; j++){
+      rect(i*100, j*90, 100, 90);
+}
  
   }
-  }
-  }
-  }
+}
+      
+
+
+ 
   
 void setup(){
-  size(900, 900);
+  size(700, 630);
   background(-1);}
