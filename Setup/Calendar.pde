@@ -2,6 +2,7 @@
 class Calendar {
   Day _head;
   int _size;
+  int _year;
   int _numberofdays; //number of days IN THAT MONTH
   int _weekday; //which weekday does the FIRST day of that month start at
   boolean _leap;
@@ -18,6 +19,7 @@ class Calendar {
    _head = null;
    _size = 0;
    _weekday = day(x, y, z);
+   _year=z;
    _numberofdays = days[x];
    _leap = isLeapYear(z);
    
@@ -44,7 +46,9 @@ boolean add( Day value ) {
     Day tmp = new Day(value, null);
     _head.setNext( tmp );
     _size++;
-    return true;}}
+    return true;}
+    
+}
 
   
 
