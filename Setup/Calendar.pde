@@ -42,13 +42,21 @@ boolean isLeapYear(int year) {
         return false;
     }
  
-boolean add( Day value ) {
-    Day tmp = new Day(value, null);
-    _head.setNext( tmp );
-    _size++;
-    return true;}
+boolean add( int value ) {
+    Day temp = new Day(value, null); // starts with the first node.
     
+    Day foop = _head;
+    
+    if (_head == null) {
+      _head = temp;}
+      else {
+        while (foop.getNext() != null) {
+          foop = foop.getNext();}
+          foop.setNext(temp);}
+          
 }
+    
+
 
   
 
