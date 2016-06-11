@@ -58,6 +58,3 @@ void addLast(int newVal){
     _size++;
 }
 }
-  
-
-  
