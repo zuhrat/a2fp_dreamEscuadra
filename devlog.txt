@@ -20,3 +20,10 @@ All:
   Zuhra:
     Numberfied the calendar grid
     David helped!
+6/11/16:
+  Zuhra & David
+    Made buttons to go from month to month
+    Made year and x-y follower thing
+    and color thing
+  Aleks:
+    Saved everyone when i showed up and figured out how to make a box pop up
