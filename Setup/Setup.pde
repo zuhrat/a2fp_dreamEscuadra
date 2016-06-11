@@ -73,6 +73,7 @@ for (int i = 0; i < 7; i++){
    
    buildCalendar();
    numberfy();
+      Letswrite(5);
        
 }
 
@@ -108,6 +109,17 @@ boolean overRect(int x, int y, int width, int height)  {
   } else {
     return false;
   }
+}
+void Letswrite(int x){
+  String _fileName= "D:/" + X._month + ""+ X._year + ".txt";
+  try {
+    Nutrition lemme = new Nutrition(_fileName,true);
+    lemme.writeToFile("" +x);
+  }
+  catch(IOException e){
+    System.out.println("nah");
+  }
+
 }
 
 void setup(){
