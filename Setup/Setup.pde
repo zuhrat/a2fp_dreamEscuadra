@@ -1,4 +1,5 @@
 //First calendar would be the month of january
+import javax.swing.JOptionPane; 
 Calendar X = new Calendar (6, 1, 2016);
 int nbOfHorizontalLines = 5;
 int nbOfVerticalLines = 7;
@@ -59,6 +60,7 @@ void draw(){
 for (int i = 0; i < 7; i++){
     for (int j = 1; j < 8; j++){
       rectButton(i*100, j*90);
+      
 }}
    fill (255);
    textSize(110);
@@ -72,7 +74,7 @@ for (int i = 0; i < 7; i++){
    
    buildCalendar();
    numberfy();
-      Letswrite(5);
+      //Letswrite(5);
        
 }
 
@@ -86,8 +88,12 @@ void rectButton(int i, int j){
   } else {
     fill(255, 200, 200);
   }
+  
   stroke(255);
-  rect(rectX, rectY, 100, 90);}
+  rect(rectX, rectY, 100, 90);
+  if (mouseX<700 && mouseY<630 && mousePressed ) {
+    Nutrition dog = new Nutrition();
+  dog.draw();}}
  
 void update(int x, int y) {
  
@@ -109,12 +115,10 @@ void mousePressed() {
     else{
       X._month+=1;
     }}
-    
-   else {
-    fill(255);
-    rect(350,350,200,100);}
-  
-    X = new Calendar(X._month, 1, X._year);
+   else if(rectX<600 && rectY < 630) {
+     fill(255);
+   rect(350, 350, 100, 100);}
+     X = new Calendar(X._month, 1, X._year);
     currentColor = rectColor;
   }
 }
@@ -127,6 +131,7 @@ boolean overRect(int x, int y, int width, int height)  {
     return false;
   }
 }
+/*
 void Letswrite(int x){
   String _fileName= "D:/" + X._month + ""+ X._year + ".txt";
   try {
@@ -138,6 +143,7 @@ void Letswrite(int x){
   }
 
 }
+*/
 
 void setup(){
   size(700, 720);
