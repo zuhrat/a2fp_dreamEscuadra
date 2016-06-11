@@ -41,21 +41,13 @@ boolean isLeapYear(int year) {
         if  (year % 400 == 0) return true;
         return false;
     }
- 
-boolean add( int value ) {
-    Day temp = new Day(value, null); // starts with the first node.
-    
-    Day foop = _head;
-    
-    if (_head == null) {
-      _head = temp;}
-      else {
-        while (foop.getNext() != null) {
-          foop = foop.getNext();}
-          foop.setNext(temp);}
-          
-}
-    
+
+void add(int val) {
+  Day tmp = new Day(val, null);
+  if (_head == null ) {_head = tmp;}
+  else
+  _head.setNext( tmp );
+  _size++;}}
 
 
   
