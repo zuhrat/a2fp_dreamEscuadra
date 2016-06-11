@@ -10,7 +10,7 @@ void draw(){
   int x = 0;
   int y = 0;
   for (int i = 0; i < 7; i++){
-    for (int j = 1; j < 7; j++){
+    for (int j = 1; j < 8; j++){
       fill (255);
       rect(i*100, j*90, 100, 90);
 }}
@@ -29,7 +29,7 @@ void draw(){
       
 void buildCalendar() {
   for (int i = 1; i <= X._numberofdays; i++) {
-    X.add(i);
+    X.addLast(i);
   }
 }
  
@@ -37,16 +37,24 @@ void numberfy(){
   
   Day x;
   x = X._head;
-  //while (x != null) {
-  for (int j = 2; j < 7; j++){
-    for (int i = 0; i < 7; i++){
-      if (x == null) {break;}
-      fill (50);
+  int y= X._weekday;
+  for (int j = 3; j < 9; j++){
+    for (int i = y; i < 7; i++){
+      if(x==null){
+        break;
+      }
+      
+      fill (80);
       text(x.getCargo(), i*100, j*90);
-      x=x.getNext();
+      if(x.getCargo()==31){
+        break;
+      }
+      x=x.getNext();}
+      y=0;
+      
 }}
-}
+
  
 void setup(){
-  size(700, 630);
+  size(700, 720);
   background(-1);}
