@@ -1,5 +1,3 @@
-
-
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
@@ -14,10 +12,6 @@ class Nutrition{
   Nutrition (String _pathfile, boolean append_value){
       path = _pathfile;
       append=append_value;
-  }
-  void draw(){
-    fill(255);
-    rect(350,350,200,100);
   }
   void writeToFile(String text) throws IOException{
     FileWriter lesgo = new FileWriter(path,append);

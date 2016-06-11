@@ -88,8 +88,7 @@ void rectButton(int i, int j){
   }
   stroke(255);
   rect(rectX, rectY, 100, 90);}
-  
-
+ 
 void update(int x, int y) {
  
    if ( overRect(rectX, rectY, rectSize, rectSize) ) {
@@ -102,14 +101,19 @@ void update(int x, int y) {
 
 void mousePressed() {
   if (rectOver) {
+  if (rectX >= 600 && rectY >= 630) {
     if(X._month==12){
       X._year+=1;
       X._month=1;
     }
     else{
       X._month+=1;
-    }
+    }}
     
+   else {
+    fill(255);
+    rect(350,350,200,100);}
+  
     X = new Calendar(X._month, 1, X._year);
     currentColor = rectColor;
   }
