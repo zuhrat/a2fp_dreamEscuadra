@@ -1,6 +1,7 @@
 //Linked list class for the days
 class Calendar {
   Day _head;
+  Day _tail;
   int _size;
   int _year;
   int _numberofdays; //number of days IN THAT MONTH
@@ -17,6 +18,7 @@ class Calendar {
   Calendar(int x, int y, int z){
     // return true if the given year is a leap year
    _head = null;
+   _tail =null;
    _size = 0;
    _weekday = day(x, y, z);
    _year=z;
@@ -42,18 +44,19 @@ boolean isLeapYear(int year) {
         return false;
     }
 
-  boolean add( int newVal ) { 
-    Day newD = Day(newVal, null);
-    if (_head == null) {_head = newD;}
-    else {
-      _head.setNext(newD);
-      _head = newD;
-      
-   
+void addLast(int newVal){
+    Day newD = new Day(newVal,null);
+    if(_head==null){
+       _head=newD;
+    }
+    else{
+      _tail.setNext(newD);
+    }
+    _tail=newD;
+    _size++;
+}
+}
   
-
-}}
-
 
 
   
