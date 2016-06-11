@@ -103,3 +103,19 @@ boolean overRect(int x, int y, int width, int height)  {
     return false;
   }
 }
+
+
+
+ 
+void setup(){
+  size(700, 720);
+  background(-1);
+  rectColor = color(0);
+  rectHighlight = color(51);
+ 
+  baseColor = color(102);
+  currentColor = baseColor;
+  
+  rectX = 650;
+  rectY = 30;
+  }
