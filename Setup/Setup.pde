@@ -1,8 +1,9 @@
 //First calendar would be the month of january
-Calendar X = new Calendar (1, 1, 2016);
+Calendar X = new Calendar (6, 1, 2016);
 int nbOfHorizontalLines = 5;
 int nbOfVerticalLines = 7;
 String[] weekDay = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+String[] months = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 int rectX, rectY;      // Position of square button
 
 int rectSize = 90;     // Diameter of rect
@@ -34,6 +35,9 @@ void numberfy(){
         break;
       }
       x=x.getNext();}
+      if(x.getCargo()==X._numberofdays){
+        break;
+      }
       y=0;
       
 }
@@ -60,6 +64,8 @@ for (int i = 0; i < 7; i++){
    fill (50);
    textSize(110);
    text(X._year, 215,85);
+   textSize(20);
+   text(months[X._month], 350, 110);
    for(int i =0; i<7;i++){
      textSize(15);
        text(weekDay[i],i*100+15,130);
@@ -104,9 +110,6 @@ boolean overRect(int x, int y, int width, int height)  {
   }
 }
 
-
-
- 
 void setup(){
   size(700, 720);
   background(-1);
