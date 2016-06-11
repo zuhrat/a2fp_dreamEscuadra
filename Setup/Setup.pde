@@ -37,13 +37,14 @@ void numberfy(){
   
   Day x;
   x = X._head;
-  for (int i = 0; i < 7; i++){
-    for (int j = 3; j < 7; j++){
-      while (x.getNext() != null){
-      fill (80);
+  //while (x != null) {
+  for (int j = 2; j < 7; j++){
+    for (int i = 0; i < 7; i++){
+      if (x == null) {break;}
+      fill (50);
       text(x.getCargo(), i*100, j*90);
       x=x.getNext();
-}}}
+}}
 }
  
 void setup(){

@@ -43,11 +43,16 @@ boolean isLeapYear(int year) {
     }
 
   boolean add( int newVal ) { 
-  Day tmp = new Day( newVal, _head );
-  _head = tmp;
-  _size++;
-  return true;
-    } 
+    Day newD = Day(newVal, null);
+    if (_head == null) {_head = newD;}
+    else {
+      _head.setNext(newD);
+      _head = newD;
+      
+   
+  
+
+}}
 
 
 
