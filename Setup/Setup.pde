@@ -29,7 +29,7 @@ void numberfy(){
         break;
       }
       
-      fill (80);
+      fill (255);
       text(x.getCargo(), i*100, j*90);
       if(x.getCargo()==X._numberofdays){
         break;
@@ -52,16 +52,15 @@ void draw(){
   } else {
     fill(rectColor);
   }
-  stroke(255);
+  stroke(51);
   rect(rectX, rectY, rectSize, rectSize);
   
   
 for (int i = 0; i < 7; i++){
     for (int j = 1; j < 8; j++){
-      fill (255);
-      rect(i*100, j*90, 100, 90);
+      rectButton(i*100, j*90);
 }}
-   fill (50);
+   fill (255);
    textSize(110);
    text(X._year, 215,85);
    textSize(20);
@@ -75,6 +74,20 @@ for (int i = 0; i < 7; i++){
    numberfy();
        
 }
+
+void rectButton(int i, int j){
+  rectX = i;
+  rectY = j;
+  update(mouseX, mouseY);
+  
+  if (rectOver) {
+    fill(rectHighlight);
+  } else {
+    fill(255, 200, 200);
+  }
+  stroke(255);
+  rect(rectX, rectY, 100, 90);}
+  
 
 void update(int x, int y) {
  
@@ -119,6 +132,6 @@ void setup(){
   baseColor = color(102);
   currentColor = baseColor;
   
-  rectX = 650;
+  rectX = 600;
   rectY = 30;
   }
