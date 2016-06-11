@@ -1,9 +1,11 @@
 //Linked list class for the days
+
 class Calendar {
   Day _head;
   Day _tail;
   int _size;
   int _year;
+  int _month;
   int _numberofdays; //number of days IN THAT MONTH
   int _weekday; //which weekday does the FIRST day of that month start at
   boolean _leap;
@@ -21,7 +23,8 @@ class Calendar {
    _tail =null;
    _size = 0;
    _weekday = day(x, y, z);
-   _year=z;
+   _year = z;
+   _month = x;
    _numberofdays = days[x];
    _leap = isLeapYear(z);
    
@@ -56,9 +59,6 @@ void addLast(int newVal){
     _size++;
 }
 }
-  
-
-
   
 
   
