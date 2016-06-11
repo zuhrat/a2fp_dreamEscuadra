@@ -42,12 +42,13 @@ boolean isLeapYear(int year) {
         return false;
     }
 
-void add(int val) {
-  Day tmp = new Day(val, null);
-  if (_head == null ) {_head = tmp;}
-  else
-  _head.setNext( tmp );
-  _size++;}}
+  boolean add( int newVal ) { 
+  Day tmp = new Day( newVal, _head );
+  _head = tmp;
+  _size++;
+  return true;
+    } 
+
 
 
   
