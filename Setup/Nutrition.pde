@@ -38,8 +38,7 @@ class Nutrition{
  
 
  } 
-  }
-  /*
+
   void writeToFile(String text) throws IOException{
     FileWriter lesgo = new FileWriter(path,append);
     PrintWriter _printLine =new PrintWriter(lesgo);
@@ -48,5 +47,4 @@ class Nutrition{
     
     _printLine.close();}
     }
-    */
  
