@@ -4,6 +4,7 @@ class Day {
   private Day _nextNode;
    int _height=0;
    int _weight=0;
+   int _BMI = 0;
   int pixelx;
   int pixely;
 
@@ -23,6 +24,9 @@ class Day {
   void setHeight(int heightt){
     _height = heightt;
   }
+  void setBMI(int BMI){
+    _BMI = BMI;}
+  
   void setPixel(int x,int y){
     pixelx=x;
     pixely=y;

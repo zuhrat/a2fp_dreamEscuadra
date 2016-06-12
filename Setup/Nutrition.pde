@@ -23,7 +23,7 @@ class Nutrition{
       String widthstr, heightstr;
   //if (_weight == 0 || _height == 0){
   widthstr = JOptionPane.showInputDialog("Enter the weight in pounds: "); 
-  heightstr = JOptionPane.showInputDialog("Enter the height in feet: ");
+  heightstr = JOptionPane.showInputDialog("Enter the height in inches: ");
   while (widthstr != "" && heightstr != ""){
  
   if (widthstr == "" && heightstr == "") {
@@ -36,13 +36,19 @@ class Nutrition{
   storeData(_weight,_height);
   }
 
- JOptionPane.showMessageDialog(null, _weight, "Weight",  JOptionPane.INFORMATION_MESSAGE);   
- JOptionPane.showMessageDialog(null, _height, "Height", JOptionPane.INFORMATION_MESSAGE);
+ JOptionPane.showMessageDialog(null, BMI(_weight, _height), "Weight",  JOptionPane.INFORMATION_MESSAGE);   
+ 
 
   }
   
-  
+  int BMI (int i, int j) {
+    int ans = 0;
+    int a = i * 703;
+    int b = j * j;
+    ans = a/b;
+   return ans;}
  
+   
   
   //USes mouseX and mouseY to determine what day it is and store the data in that day
   void storeData(int weight, int heightt){
