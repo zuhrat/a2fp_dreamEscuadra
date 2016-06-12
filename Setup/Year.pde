@@ -5,7 +5,9 @@ class Year{
   Year _nextYear;
   Year _lastYear;
   int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-  int yearAverageWeight;
+  int totalWeight;
+  int numOfWeights;
+  int yearAverageWeight; // THIS is totalweight / numOfWeights
   
   Year (int yearNum){
     year = yearNum;
@@ -18,15 +20,23 @@ class Year{
   void inputData(){
     Day today = X._head;
     int month = X._month;
-    for (int i = 1; i <= _numberofdays){
+    for (int i = 1; i <= X._numberofdays;i++){
       months[month][i].setWeight(today._weight);
-      months[month][i].setWeight(today._height);
+      months[month][i].setHeight(today._height);
       if (today.equals(X._tail))
         break;
+      if (today._weight != 0){
+        totalWeight += today._weight;
+        numOfWeights += 1;
+        updateWeightAverage();
+        
       today = today.getNext();
     }
-    
+  }
   
+  void updateWeightAverage(){
+    yearAverageWeight = (int) totalWeight / numOfWeights;
+  }
   
   
   
@@ -47,10 +57,10 @@ class Year{
     return _dataWeight;
     }
     
-  int setHeight(int inputHeight){
+  void setHeight(int inputHeight){
       _dataHeight = inputHeight;
     }
-    int setWeight(int inputWeight){
+    void setWeight(int inputWeight){
      _dataWeight = inputWeight;
     }
   }
