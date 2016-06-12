@@ -5,6 +5,7 @@ import java.io.IOException;
 class Nutrition{
   int _weight;
   int _height;
+  int BMI;
   private String path;
   private boolean append =false;
   Nutrition(){
@@ -20,10 +21,12 @@ class Nutrition{
   void draw(){
      background(0); 
       String widthstr, heightstr;
-  if (_weight == 0 || _height == 0){
-  widthstr = JOptionPane.showInputDialog("Enter the weight: "); 
-  heightstr = JOptionPane.showInputDialog("Enter the height: "); 
-  if (widthstr == "" || heightstr == "") {
+  //if (_weight == 0 || _height == 0){
+  widthstr = JOptionPane.showInputDialog("Enter the weight in pounds: "); 
+  heightstr = JOptionPane.showInputDialog("Enter the height in feet: ");
+  while (widthstr != "" && heightstr != ""){
+ 
+  if (widthstr == "" && heightstr == "") {
         _weight = 0;
         _height = 0;}
   else {
@@ -31,13 +34,11 @@ class Nutrition{
      _height=parseInt(heightstr); 
   }
   }
-    
-   
+  
  JOptionPane.showMessageDialog(null, _weight, "Weight",  JOptionPane.INFORMATION_MESSAGE);   
  JOptionPane.showMessageDialog(null, _height, "Height", JOptionPane.INFORMATION_MESSAGE);
- 
-
- } 
+  
+  }
 
   void writeToFile(String text) throws IOException{
     FileWriter lesgo = new FileWriter(path,append);
