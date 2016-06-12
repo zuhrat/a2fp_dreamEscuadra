@@ -2,8 +2,8 @@
 class Day {
   private int _cargo;
   private Day _nextNode;
-  private int _height;
-  private int _weight;
+   int _height=0;
+   int _weight=0;
   int pixelx;
   int pixely;
 
