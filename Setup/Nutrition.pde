@@ -43,7 +43,7 @@ class Nutrition{
   
   
  
-  }
+  
   //USes mouseX and mouseY to determine what day it is and store the data in that day
   void storeData(int weight, int heightt){
     Day now = X._head;
@@ -66,4 +66,5 @@ class Nutrition{
     
     _printLine.close();
     }
+}
     
