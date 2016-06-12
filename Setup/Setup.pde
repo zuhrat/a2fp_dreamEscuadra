@@ -8,6 +8,7 @@ String[] months = {"", "January", "February", "March", "April", "May", "June", "
 int rectX, rectY;      // Position of square button
 
 int rectSize = 90;     // Diameter of rect
+boolean sed =true;
 
 color rectColor, circleColor, baseColor;
 color rectHighlight, circleHighlight;
@@ -18,7 +19,16 @@ void buildCalendar() {
     X.addLast(i);
   }
 }
- 
+void pagify(){
+  Day tmp = X._head;
+  while(tmp.getNext()!= X._tail){
+    Letswrite(X._month,tmp.getCargo(),X._year);
+    tmp=tmp.getNext();
+  }
+  Letswrite(X._month,X._tail.getCargo()-1,X._year);
+  Letswrite(X._month,X._tail.getCargo(),X._year);
+}
+    
 void numberfy(){
   
   Day x;
@@ -71,8 +81,11 @@ for (int i = 0; i < 7; i++){
      textSize(15);
        text(weekDay[i],i*100+15,130);
    }
-   
+   if(sed==true){
    buildCalendar();
+   pagify();
+   sed=false;
+   }
    numberfy();
       //Letswrite(5);
        
@@ -108,11 +121,15 @@ void update(int x, int y) {
 void mousePressed() {
   if (rectOver) {
   if (rectX >= 600 && rectY >= 630) {
+    
     if(X._month==12){
+     sed=true;
       X._year+=1;
       X._month=1;
-    }
+    
+  }
     else{
+      sed =true;
       X._month+=1;
     }}
    else if(rectX<600 && rectY < 630) {
@@ -131,19 +148,18 @@ boolean overRect(int x, int y, int width, int height)  {
     return false;
   }
 }
-/*
-void Letswrite(int x){
+void Letswrite(int x,int y,int z){
   String _fileName= "D:/" + X._month + ""+ X._year + ".txt";
   try {
     Nutrition lemme = new Nutrition(_fileName,true);
-    lemme.writeToFile("" +x);
+    lemme.writeToFile("" +x +"," + y +","+z);
   }
   catch(IOException e){
     System.out.println("nah");
   }
 
 }
-*/
+
 
 void setup(){
   size(700, 720);
@@ -153,7 +169,6 @@ void setup(){
  
   baseColor = color(102);
   currentColor = baseColor;
-  
   rectX = 600;
   rectY = 30;
   }
