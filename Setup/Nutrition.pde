@@ -33,19 +33,37 @@ class Nutrition{
      _weight=parseInt(widthstr); 
      _height=parseInt(heightstr); 
   }
+  storeData(_weight,_height);
   }
   
  JOptionPane.showMessageDialog(null, _weight, "Weight",  JOptionPane.INFORMATION_MESSAGE);   
  JOptionPane.showMessageDialog(null, _height, "Height", JOptionPane.INFORMATION_MESSAGE);
   
   }
-
+  
+  
+ 
+  }
+  //USes mouseX and mouseY to determine what day it is and store the data in that day
+  void storeData(int weight, int heightt){
+    Day now = X._head;
+    for (int i = 1; i <= X._numberofdays; i++){
+          if ( now.pixelx <= mouseX && now.pixelx + 100 >= mouseX)
+            if ( now.pixely <= mouseY && now.pixely + 90 >= mouseY){
+                now.setWeight(weight);
+                now.setHeight(heightt);
+                break;
+            }
+         now = now.getNext();
+    }
+  }
+  
   void writeToFile(String text) throws IOException{
     FileWriter lesgo = new FileWriter(path,append);
     PrintWriter _printLine =new PrintWriter(lesgo);
     
     _printLine.printf("%s" + "%n", text);
     
-    _printLine.close();}
+    _printLine.close();
     }
- 
+    
