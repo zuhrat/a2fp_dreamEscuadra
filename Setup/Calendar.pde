@@ -29,6 +29,11 @@ class Calendar {
    
   }
 
+//========== GET ===========\\
+Day getHead(){
+  return _head;
+}
+
 
 //what day of the week it falls
  int day(int M, int D, int Y) {

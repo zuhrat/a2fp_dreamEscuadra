@@ -2,8 +2,10 @@
 class Day {
   private int _cargo;
   private Day _nextNode;
-  private int _height;
-  private int _weight;
+   int _height=0;
+   int _weight=0;
+  int pixelx;
+  int pixely;
 
 //Constructor 
   Day( int value, Day next ){
@@ -20,6 +22,10 @@ class Day {
 }
   void setHeight(int heightt){
     _height = heightt;
+  }
+  void setPixel(int x,int y){
+    pixelx=x;
+    pixely=y;
   }
   
   

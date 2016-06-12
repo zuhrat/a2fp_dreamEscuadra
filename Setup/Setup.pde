@@ -44,6 +44,8 @@ void numberfy(){
       
       fill (255);
       text(x.getCargo(), i*100, j*90);
+      text(x._height + "," + x._weight,i*100,j*85);
+      x.setPixel(i*100,j*90);
       if(x.getCargo()==X._numberofdays){
         break;
       }
