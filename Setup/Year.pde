@@ -37,11 +37,8 @@ class Year{
   void updateWeightAverage(){
     yearAverageWeight = (int) totalWeight / numOfWeights;
   }
-  
-  
-  
-  
-  class Data{
+
+class Data{
     int _dataHeight;
     int _dataWeight;
     

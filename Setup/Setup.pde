@@ -10,6 +10,8 @@ boolean locked = false;
 
 int rectSize = 90;     // Diameter of rect
 boolean sed =true;
+boolean button;
+boolean button2;
 
 color rectColor, circleColor, baseColor;
 color rectHighlight, circleHighlight;
@@ -70,7 +72,6 @@ void draw(){
   stroke(51);
   rect(rectX, rectY, rectSize, rectSize);
   
-  
 for (int i = 0; i < 7; i++){
     for (int j = 1; j < 8; j++){
       rectButton(i*100, j*90);
@@ -92,6 +93,28 @@ for (int i = 0; i < 7; i++){
    }
    numberfy();
       //Letswrite(5);
+   
+   if (mouseX <=100 && mouseY>=630 && mousePressed) {button = true;}
+    else {button = false;}
+    
+   if (button){
+     if (X._month==1){
+         sed = true;
+         X._year -= 1;
+         X._month = 12;}
+        else{
+          sed = true;
+          X._month -=1;}
+       
+       X = new Calendar(X._month, 1, X._year);
+         currentColor = rectColor;}
+    
+    if (mouseX>=0 && mouseY >=180 && mouseY <= 630 && mousePressed) {button2 = true;}
+    else {button2 = false;}
+    
+    if (button2) {
+      Nutrition dog = new Nutrition();
+      dog.draw();}
        
 }
 

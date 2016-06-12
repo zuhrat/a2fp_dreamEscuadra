@@ -34,7 +34,7 @@ class Nutrition{
       }
       storeData(_weight,_height);
     
- JOptionPane.showMessageDialog(null, BMI(_weight, _height), "Weight",  JOptionPane.INFORMATION_MESSAGE);   
+ JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
  
 
   }}
