@@ -108,11 +108,7 @@ void rectButton(int i, int j){
   
   stroke(255);
   rect(rectX, rectY, 100, 90);
-
-   if (mouseX<700 && mouseY<630 && mousePressed ) {
-          Nutrition dog = new Nutrition();
-          dog.draw();
- }}
+}
  
 void update(int x, int y) {
  
@@ -139,7 +135,23 @@ void mousePressed() {
         
          X = new Calendar(X._month, 1, X._year);
          currentColor = rectColor;}
-}}
+ 
+     else if (mouseX <=100 && mouseY>=630 && mousePressed) {
+       if (X._month==1){
+         sed = true;
+         X._year -= 1;
+         X._month = 12;}
+        else{
+          sed = true;
+          X._month -=1;}
+       
+       X = new Calendar(X._month, 1, X._year);
+         currentColor = rectColor;}
+     
+     else {
+       Nutrition dog = new Nutrition();
+       dog.draw();}}
+}
 boolean overRect(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
       mouseY >= y && mouseY <= y+height) {

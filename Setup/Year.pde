@@ -32,7 +32,7 @@ class Year{
         
       today = today.getNext();
     }
-  }
+  }}
   
   void updateWeightAverage(){
     yearAverageWeight = (int) totalWeight / numOfWeights;

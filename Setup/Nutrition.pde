@@ -25,21 +25,19 @@ class Nutrition{
   widthstr = JOptionPane.showInputDialog("Enter the weight in pounds: "); 
   heightstr = JOptionPane.showInputDialog("Enter the height in inches: ");
   while (widthstr != "" && heightstr != ""){
- 
-  if (widthstr == "" && heightstr == "") {
+     if (widthstr == "" && heightstr == "") {
         _weight = 0;
         _height = 0;}
-  else {
+    else {
      _weight=parseInt(widthstr); 
      _height=parseInt(heightstr); 
-  }
-  storeData(_weight,_height);
-  }
-
+      }
+      storeData(_weight,_height);
+    
  JOptionPane.showMessageDialog(null, BMI(_weight, _height), "Weight",  JOptionPane.INFORMATION_MESSAGE);   
  
 
-  }
+  }}
   
   int BMI (int i, int j) {
     int ans = 0;
