@@ -34,10 +34,10 @@ class Nutrition{
      _height=parseInt(heightstr); 
   }
   }
-  
+
  JOptionPane.showMessageDialog(null, _weight, "Weight",  JOptionPane.INFORMATION_MESSAGE);   
  JOptionPane.showMessageDialog(null, _height, "Height", JOptionPane.INFORMATION_MESSAGE);
-  
+
   }
 
   void writeToFile(String text) throws IOException{

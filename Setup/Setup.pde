@@ -6,6 +6,7 @@ int nbOfVerticalLines = 7;
 String[] weekDay = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 String[] months = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 int rectX, rectY;      // Position of square button
+boolean locked = false;
 
 int rectSize = 90;     // Diameter of rect
 boolean sed =true;
@@ -14,6 +15,7 @@ color rectColor, circleColor, baseColor;
 color rectHighlight, circleHighlight;
 color currentColor;
 boolean rectOver = false;
+
 void buildCalendar() {
   for (int i = 1; i <= X._numberofdays; i++) {
     X.addLast(i);
@@ -104,9 +106,11 @@ void rectButton(int i, int j){
   
   stroke(255);
   rect(rectX, rectY, 100, 90);
-  if (mouseX<700 && mouseY<630 && mousePressed ) {
-    Nutrition dog = new Nutrition();
-  dog.draw();}}
+
+   if (mouseX<700 && mouseY<630 && mousePressed ) {
+          Nutrition dog = new Nutrition();
+          dog.draw();
+ }}
  
 void update(int x, int y) {
  
@@ -119,27 +123,21 @@ void update(int x, int y) {
 }
 
 void mousePressed() {
+  update(mouseX, mouseY);
   if (rectOver) {
-  if (rectX >= 600 && rectY >= 630) {
+       if (mouseX >= 600 && mouseY >= 630 && mousePressed) {
     
-    if(X._month==12){
-     sed=true;
-      X._year+=1;
-      X._month=1;
-    
-  }
-    else{
-      sed =true;
-      X._month+=1;
-    }}
-   else if(rectX<600 && rectY < 630) {
-     fill(255);
-   rect(350, 350, 100, 100);}
-     X = new Calendar(X._month, 1, X._year);
-    currentColor = rectColor;
-  }
-}
-
+        if(X._month==12){
+            sed=true;
+            X._year+=1;
+            X._month=1;}
+        else{
+          sed =true;
+          X._month+=1;}
+        
+         X = new Calendar(X._month, 1, X._year);
+         currentColor = rectColor;}
+}}
 boolean overRect(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
       mouseY >= y && mouseY <= y+height) {
