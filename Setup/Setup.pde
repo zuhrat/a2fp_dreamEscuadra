@@ -16,7 +16,13 @@ int rectSize = 90;     // Diameter of rect
 boolean sed =true;
 boolean button;
 boolean button2;
-
+Year twokfifteen = new Year(2015);
+Year twoksixteen= new Year(2016);
+Year twokseventeen= new Year(2017);
+Year twokeighteen= new Year(2018);
+Year twoknineteen= new Year(2019);
+Year twentyTwenty= new Year(2020);
+Year currentYear = twoksixteen;
 color rectColor, circleColor, baseColor;
 color rectHighlight, circleHighlight;
 color currentColor;
@@ -41,6 +47,8 @@ void numberfy(){
   
   Day x;
   x = X._head;
+  x._weight = currentYear.months[X._month][x.getCargo()].getWeight();
+  x._height = currentYear.months[X._month][x.getCargo()].getHeight();
   int y= X._weekday;
   for (int j = 3; j < 9; j++){
     for (int i = y; i < 7; i++){
@@ -151,11 +159,17 @@ void mousePressed() {
     
         if(X._month==12){
             sed=true;
+            currentYear.inputData();
             X._year+=1;
-            X._month=1;}
+            X._month=1;
+            checkYear(X._year);
+            
+            }
         else{
           sed =true;
-          X._month+=1;}
+          currentYear.inputData();
+          X._month+=1;
+         }
         
          X = new Calendar(X._month, 1, X._year);
          currentColor = rectColor;}
@@ -163,10 +177,14 @@ void mousePressed() {
      else if(mouseX < 600 && mouseX>=500 && mouseY >= 630 && mousePressed) {
      if (X._month==1){
          sed = true;
+         currentYear.inputData();
          X._year -= 1;
-         X._month = 12;}
+         X._month = 12;
+         checkYear(X._year);
+         }
         else{
           sed = true;
+          currentYear.inputData();
           X._month -=1;}
        
        X = new Calendar(X._month, 1, X._year);
@@ -186,6 +204,28 @@ void mousePressed() {
          
 
   }
+void checkYear(int yeer){
+  if (yeer == 2016){
+    currentYear = twoksixteen;
+}
+  else if (yeer == 2015){
+    currentYear = twokfifteen;
+  }
+  else if (yeer == 2017){
+    currentYear = twokseventeen;
+  }
+  else if (yeer == 2018){
+    currentYear = twokeighteen;
+  }
+  else if (yeer == 2019){
+    currentYear = twoknineteen;
+  }
+  else if (yeer == 2020){
+    currentYear = twentyTwenty;
+  }
+  else 
+    currentYear = twoksixteen;
+}
 
 boolean overRect(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
@@ -202,7 +242,7 @@ void Letswrite(int x,int y,int z){
     lemme.writeToFile("" +x +"," + y );
   }
   catch(IOException e){
-    System.out.println("nah");
+    System.out.println("");
   }
 
 }
