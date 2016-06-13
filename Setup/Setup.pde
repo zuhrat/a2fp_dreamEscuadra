@@ -30,11 +30,11 @@ void buildCalendar() {
 void pagify(){
   Day tmp = X._head;
   while(tmp.getNext()!= X._tail){
-    Letswrite(X._month,tmp.getCargo(),X._year);
+    Letswrite(tmp._weight,tmp._height,tmp.getCargo());
     tmp=tmp.getNext();
   }
-  Letswrite(X._month,X._tail.getCargo()-1,X._year);
-  Letswrite(X._month,X._tail.getCargo(),X._year);
+  Letswrite(tmp._weight,tmp._height,tmp.getCargo());
+  Letswrite(tmp._weight,tmp._height,tmp.getCargo());
 }
     
 void numberfy(){
@@ -173,10 +173,10 @@ boolean overRect(int x, int y, int width, int height)  {
   }
 }
 void Letswrite(int x,int y,int z){
-  String _fileName= "D:/" + X._month + ""+ X._year + ".txt";
+  String _fileName= "D:/" + X._month + z+ X._year + ".txt";
   try {
-    Nutrition lemme = new Nutrition(_fileName,true);
-    lemme.writeToFile("" +x +"," + y +","+z);
+    Nutrition lemme = new Nutrition(_fileName);
+    lemme.writeToFile("" +x +"," + y );
   }
   catch(IOException e){
     System.out.println("nah");
@@ -208,6 +208,7 @@ void divdeandconquer(String hereugo){
           if (mouseX <= now.pixelxrange && mouseX >= now.pixelx && mouseY <= now.pixelyrange && mouseY >= now.pixely){
                 now.setWeight(weight);
                 now.setHeight(heightt);
+                pagify();
                 break;
             }
          now = now.getNext();
