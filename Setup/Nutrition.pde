@@ -21,11 +21,11 @@ class Nutrition{
       String widthstr, heightstr;
       widthstr = JOptionPane.showInputDialog("Enter your weight in pounds: "); 
   heightstr = JOptionPane.showInputDialog("Enter your height in inches: ");
-
+      if (!widthstr.equals("") && !heightstr.equals("")){
      _weight=parseInt(widthstr); 
      _height=parseInt(heightstr); 
       storeData(_weight,_height);
-  
+      }
       /*
     for (int i = 1; i <2; i++)
  JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
