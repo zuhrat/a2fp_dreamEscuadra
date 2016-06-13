@@ -7,6 +7,9 @@ String[] weekDay = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Fri
 String[] months = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
 int rectX, rectY;      // Position of square button
 boolean locked = false;
+int _weight;
+int _height;
+  int BMI;
 
 int rectSize = 90;     // Diameter of rect
 boolean sed =true;
@@ -112,10 +115,11 @@ for (int i = 0; i < 7; i++){
     if (mouseX>=0 && mouseY >=180 && mouseY <= 630 && mousePressed) {button2 = true;}
     else {button2 = false;}
     
+   
     if (button2) {
       Nutrition dog = new Nutrition();
       dog.draw();}
-       
+
 }
 
 void rectButton(int i, int j){
@@ -143,8 +147,30 @@ void update(int x, int y) {
   }
 }
 
-void mousePressed() {
-  update(mouseX, mouseY);
+void mousePressed() {      
+  String widthstr, heightstr;
+    update(mouseX, mouseY);
+  //if (_weight == 0 || _height == 0){
+    noLoop();
+  widthstr = JOptionPane.showInputDialog("Enter your weight in pounds: "); 
+  heightstr = JOptionPane.showInputDialog("Enter your height in inches: ");
+  while (widthstr != "" && heightstr != ""){
+     if (widthstr == "" && heightstr == "") {
+        _weight = 0;
+        _height = 0;}
+    else {
+     _weight=parseInt(widthstr); 
+     _height=parseInt(heightstr); 
+      }
+      storeData(_weight,_height);
+      /*
+    for (int i = 1; i <2; i++)
+ JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
+*/ 
+}
+loop();
+  
+
   if (rectOver) {
        if (mouseX >= 600 && mouseY >= 630 && mousePressed) {
     
@@ -174,7 +200,11 @@ void mousePressed() {
      else {
        Nutrition dog = new Nutrition();
        dog.draw();}}
-}
+       
+         
+
+  }
+
 boolean overRect(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
       mouseY >= y && mouseY <= y+height) {
@@ -194,7 +224,19 @@ void Letswrite(int x,int y,int z){
   }
 
 }
-
+ //USes mouseX and mouseY to determine what day it is and store the data in that day
+  void storeData(int weight, int heightt){
+    Day now = X._head;
+    for (int i = 1; i <= X._numberofdays; i++){
+          if ( now.pixelx <= mouseX && now.pixelx + 100 >= mouseX)
+            if ( now.pixely <= mouseY && now.pixely + 90 >= mouseY){
+                now.setWeight(weight);
+                now.setHeight(heightt);
+                break;
+            }
+         now = now.getNext();
+    }
+  }
 
 void setup(){
   size(700, 720);
@@ -207,3 +249,9 @@ void setup(){
   rectX = 600;
   rectY = 30;
   }
+    int BMI (int i, int j) {
+    int ans = 0;
+    int a = i * 703;
+    int b = j * j;
+    ans = a/b;
+   return ans;}
