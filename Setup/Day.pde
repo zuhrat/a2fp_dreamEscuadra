@@ -1,9 +1,11 @@
 //This class is basically a NODE class
+//This class is basically a NODE class
 class Day {
   private int _cargo;
   private Day _nextNode;
    int _height=0;
    int _weight=0;
+   int _calor=0;
    int _BMI = 0;
   int pixelx;
   int pixely;
@@ -22,6 +24,9 @@ class Day {
   
   void setWeight(int weight){
     _weight=weight;
+}
+  void setCalor(int calor){
+    _calor=calor;
 }
   void setHeight(int heightt){
     _height = heightt;
