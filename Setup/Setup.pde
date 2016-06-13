@@ -50,7 +50,7 @@ void numberfy(){
       fill (255);
       text(x.getCargo(), i*100, j*90);
       text(x._height + "," + x._weight,i*100,j*85);
-      x.setPixel(i*100,j*90);
+      x.setPixel(i*100,j*90 -90);
       if(x.getCargo()==X._numberofdays){
         break;
       }
@@ -186,8 +186,7 @@ void Letswrite(int x,int y,int z){
   void storeData(int weight, int heightt){
     Day now = X._head;
     for (int i = 1; i <= X._numberofdays; i++){
-          if ( now.pixelx <= mouseX && now.pixelx + 100 >= mouseX)
-            if ( now.pixely <= mouseY && now.pixely + 90 >= mouseY){
+          if (mouseX <= now.pixelxrange && mouseX >= now.pixelx && mouseY <= now.pixelyrange && mouseY >= now.pixely){
                 now.setWeight(weight);
                 now.setHeight(heightt);
                 break;
