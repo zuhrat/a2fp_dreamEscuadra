@@ -1,5 +1,4 @@
 //This class is basically a NODE class
-//This class is basically a NODE class
 class Day {
   private int _cargo;
   private Day _nextNode;
