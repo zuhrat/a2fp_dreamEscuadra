@@ -96,30 +96,6 @@ for (int i = 0; i < 7; i++){
    }
    numberfy();
       //Letswrite(5);
-   
-   if (mouseX <=100 && mouseY>=630 && mousePressed) {button = true;}
-    else {button = false;}
-    
-   if (button){
-     if (X._month==1){
-         sed = true;
-         X._year -= 1;
-         X._month = 12;}
-        else{
-          sed = true;
-          X._month -=1;}
-       
-       X = new Calendar(X._month, 1, X._year);
-         currentColor = rectColor;}
-    
-    if (mouseX>=0 && mouseY >=180 && mouseY <= 630 && mousePressed) {button2 = true;}
-    else {button2 = false;}
-    
-   
-    if (button2) {
-      Nutrition dog = new Nutrition();
-      dog.draw();}
-
 }
 
 void rectButton(int i, int j){
@@ -148,30 +124,11 @@ void update(int x, int y) {
 }
 
 void mousePressed() {      
-  String widthstr, heightstr;
     update(mouseX, mouseY);
   //if (_weight == 0 || _height == 0){
-    noLoop();
-  widthstr = JOptionPane.showInputDialog("Enter your weight in pounds: "); 
-  heightstr = JOptionPane.showInputDialog("Enter your height in inches: ");
-  while (widthstr != "" && heightstr != ""){
-     if (widthstr == "" && heightstr == "") {
-        _weight = 0;
-        _height = 0;}
-    else {
-     _weight=parseInt(widthstr); 
-     _height=parseInt(heightstr); 
-      }
-      storeData(_weight,_height);
-      /*
-    for (int i = 1; i <2; i++)
- JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
-*/ 
-}
-loop();
   
 
-  if (rectOver) {
+  if (true) {
        if (mouseX >= 600 && mouseY >= 630 && mousePressed) {
     
         if(X._month==12){
@@ -185,8 +142,8 @@ loop();
          X = new Calendar(X._month, 1, X._year);
          currentColor = rectColor;}
  
-     else if (mouseX <=100 && mouseY>=630 && mousePressed) {
-       if (X._month==1){
+     else if(mouseX < 600 && mouseX>=500 && mouseY >= 630 && mousePressed) {
+     if (X._month==1){
          sed = true;
          X._year -= 1;
          X._month = 12;}
@@ -199,7 +156,8 @@ loop();
      
      else {
        Nutrition dog = new Nutrition();
-       dog.draw();}}
+       dog.ask();
+      currentColor = rectColor;}}
        
          
 
@@ -246,8 +204,8 @@ void setup(){
  
   baseColor = color(102);
   currentColor = baseColor;
-  rectX = 600;
-  rectY = 30;
+  rectX = 0;
+  rectY = 0;
   }
     int BMI (int i, int j) {
     int ans = 0;
