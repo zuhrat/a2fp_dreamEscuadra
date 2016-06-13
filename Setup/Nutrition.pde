@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.io.FileReader;
 
 class Nutrition{
 
@@ -31,6 +32,15 @@ class Nutrition{
  JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
 */ 
 }
+String weightExtractor(int x, int y, int z) throws Exception{
+   FileReader lesgo = new FileReader("" +x + "" +y +""+z+".txt");
+   BufferedReader br =new BufferedReader(lesgo);
+   String s;
+   s=br.readLine();
+   lesgo.close();
+   return s;
+     
+ }
   
 
  
