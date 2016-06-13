@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
+import java.io.FileReader;
 
 class Nutrition{
 
@@ -21,16 +22,25 @@ class Nutrition{
       String widthstr, heightstr;
       widthstr = JOptionPane.showInputDialog("Enter your weight in pounds: "); 
   heightstr = JOptionPane.showInputDialog("Enter your height in inches: ");
-
+      if (!widthstr.equals("") && !heightstr.equals("")){
      _weight=parseInt(widthstr); 
      _height=parseInt(heightstr); 
       storeData(_weight,_height);
-  
+      }
       /*
     for (int i = 1; i <2; i++)
  JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
 */ 
 }
+String weightExtractor(int x, int y, int z) throws Exception{
+   FileReader lesgo = new FileReader("" +x + "" +y +""+z+".txt");
+   BufferedReader br =new BufferedReader(lesgo);
+   String s;
+   s=br.readLine();
+   lesgo.close();
+   return s;
+     
+ }
   
 
  

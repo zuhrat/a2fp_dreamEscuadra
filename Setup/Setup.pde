@@ -10,7 +10,8 @@ boolean locked = false;
 int _weight;
 int _height;
   int BMI;
-
+int locw;
+int loch;
 int rectSize = 90;     // Diameter of rect
 boolean sed =true;
 boolean button;
@@ -29,11 +30,11 @@ void buildCalendar() {
 void pagify(){
   Day tmp = X._head;
   while(tmp.getNext()!= X._tail){
-    Letswrite(X._month,tmp.getCargo(),X._year);
+    Letswrite(tmp._weight,tmp._height,tmp.getCargo());
     tmp=tmp.getNext();
   }
-  Letswrite(X._month,X._tail.getCargo()-1,X._year);
-  Letswrite(X._month,X._tail.getCargo(),X._year);
+  Letswrite(tmp._weight,tmp._height,tmp.getCargo());
+  Letswrite(tmp._weight,tmp._height,tmp.getCargo());
 }
     
 void numberfy(){
@@ -193,15 +194,33 @@ boolean overRect(int x, int y, int width, int height)  {
   }
 }
 void Letswrite(int x,int y,int z){
-  String _fileName= "D:/" + X._month + ""+ X._year + ".txt";
+  String _fileName= "D:/" + X._month + z+ X._year + ".txt";
   try {
-    Nutrition lemme = new Nutrition(_fileName,true);
-    lemme.writeToFile("" +x +"," + y +","+z);
+    Nutrition lemme = new Nutrition(_fileName);
+    lemme.writeToFile("" +x +"," + y );
   }
   catch(IOException e){
     System.out.println("nah");
   }
 
+}
+void divdeandconquer(String hereugo){
+    int x=0;
+    String part="";
+    String ok = ",";
+//    for(int x=0;x<hereugo.length();x++){
+      while(!hereugo.substring(x,x+1).equals(ok)){
+        part+=hereugo.substring(x,x+1);
+        x+=1;
+      }
+      locw=Integer.parseInt(part);
+      part="";
+      while(x<hereugo.length()){
+        part+=hereugo.substring(x,x+1);
+        x+=1;
+      }
+      loch=Integer.parseInt(part);
+  //  }
 }
  //USes mouseX and mouseY to determine what day it is and store the data in that day
   void storeData(int weight, int heightt){
@@ -210,6 +229,7 @@ void Letswrite(int x,int y,int z){
           if (mouseX <= now.pixelxrange && mouseX >= now.pixelx && mouseY <= now.pixelyrange && mouseY >= now.pixely){
                 now.setWeight(weight);
                 now.setHeight(heightt);
+                pagify();
                 break;
             }
          now = now.getNext();
