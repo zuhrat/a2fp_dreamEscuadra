@@ -9,6 +9,7 @@ int rectX, rectY;      // Position of square button
 boolean locked = false;
 int _weight;
 int _height;
+int _calor;
   int BMI;
 int locw;
 int loch;
@@ -16,13 +17,7 @@ int rectSize = 90;     // Diameter of rect
 boolean sed =true;
 boolean button;
 boolean button2;
-Year twokfifteen = new Year(2015);
-Year twoksixteen= new Year(2016);
-Year twokseventeen= new Year(2017);
-Year twokeighteen= new Year(2018);
-Year twoknineteen= new Year(2019);
-Year twentyTwenty= new Year(2020);
-Year currentYear = twoksixteen;
+
 color rectColor, circleColor, baseColor;
 color rectHighlight, circleHighlight;
 color currentColor;
@@ -47,8 +42,6 @@ void numberfy(){
   
   Day x;
   x = X._head;
-  x._weight = currentYear.months[X._month][x.getCargo()].getWeight();
-  x._height = currentYear.months[X._month][x.getCargo()].getHeight();
   int y= X._weekday;
   for (int j = 3; j < 9; j++){
     for (int i = y; i < 7; i++){
@@ -57,8 +50,11 @@ void numberfy(){
       }
       
       fill (255);
+      textSize(20);
       text(x.getCargo(), i*100, j*90);
-      text(x._height + "," + x._weight,i*100,j*85);
+      textSize(16);
+      text(x._weight + "lb , " + x._height+ "in",i*100+5,j*90 -25);
+      text(x._calor + "C",i*100 + 15,j*90-50);
       x.setPixel(i*100,j*90 -90);
       if(x.getCargo()==X._numberofdays){
         break;
@@ -85,7 +81,6 @@ void draw(){
   stroke(51);
   rect(rectX, rectY, rectSize, rectSize);
   
-   Homeb();
 
   
 for (int i = 0; i < 7; i++){
@@ -94,6 +89,9 @@ for (int i = 0; i < 7; i++){
       
 }}
    fill (255);
+   textSize(40);
+   text("NEXT",600,700);
+   text("PREV",500,700);
    textSize(110);
    text(X._year, 215,85);
    textSize(20);
@@ -111,18 +109,6 @@ for (int i = 0; i < 7; i++){
       //Letswrite(5);
 }
 
-void Homeb(){
-  update(mouseX, mouseY);
-  
-  if (rectOver) {
-    fill(rectHighlight);
-  } else {
-    fill(255, 200, 200);
-  }
-  
-  stroke(51);
-  rect(20, 30, 90, 90);
-}
 
 void rectButton(int i, int j){
   rectX = i;
@@ -159,17 +145,11 @@ void mousePressed() {
     
         if(X._month==12){
             sed=true;
-            currentYear.inputData();
             X._year+=1;
-            X._month=1;
-            checkYear(X._year);
-            
-            }
+            X._month=1;}
         else{
           sed =true;
-          currentYear.inputData();
-          X._month+=1;
-         }
+          X._month+=1;}
         
          X = new Calendar(X._month, 1, X._year);
          currentColor = rectColor;}
@@ -177,14 +157,10 @@ void mousePressed() {
      else if(mouseX < 600 && mouseX>=500 && mouseY >= 630 && mousePressed) {
      if (X._month==1){
          sed = true;
-         currentYear.inputData();
          X._year -= 1;
-         X._month = 12;
-         checkYear(X._year);
-         }
+         X._month = 12;}
         else{
           sed = true;
-          currentYear.inputData();
           X._month -=1;}
        
        X = new Calendar(X._month, 1, X._year);
@@ -192,8 +168,7 @@ void mousePressed() {
      
      else if(mouseX < 110 && mouseY < 120 && mousePressed) {
        Home x = new Home();
-       x.draw();
-       noLoop();
+       x.ask();
        }
      
      else {
@@ -204,28 +179,6 @@ void mousePressed() {
          
 
   }
-void checkYear(int yeer){
-  if (yeer == 2016){
-    currentYear = twoksixteen;
-}
-  else if (yeer == 2015){
-    currentYear = twokfifteen;
-  }
-  else if (yeer == 2017){
-    currentYear = twokseventeen;
-  }
-  else if (yeer == 2018){
-    currentYear = twokeighteen;
-  }
-  else if (yeer == 2019){
-    currentYear = twoknineteen;
-  }
-  else if (yeer == 2020){
-    currentYear = twentyTwenty;
-  }
-  else 
-    currentYear = twoksixteen;
-}
 
 boolean overRect(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
@@ -242,7 +195,7 @@ void Letswrite(int x,int y,int z){
     lemme.writeToFile("" +x +"," + y );
   }
   catch(IOException e){
-    System.out.println("");
+    System.out.println("nah");
   }
 
 }
@@ -265,12 +218,13 @@ void divdeandconquer(String hereugo){
   //  }
 }
  //USes mouseX and mouseY to determine what day it is and store the data in that day
-  void storeData(int weight, int heightt){
+  void storeData(int weight, int heightt, int calor){
     Day now = X._head;
     for (int i = 1; i <= X._numberofdays; i++){
           if (mouseX <= now.pixelxrange && mouseX >= now.pixelx && mouseY <= now.pixelyrange && mouseY >= now.pixely){
                 now.setWeight(weight);
                 now.setHeight(heightt);
+                now.setCalor(calor);
                 pagify();
                 break;
             }
