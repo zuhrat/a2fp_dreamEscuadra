@@ -7,6 +7,8 @@ class Day {
    int _BMI = 0;
   int pixelx;
   int pixely;
+  int pixelxrange;
+  int pixelyrange;
 
 //Constructor 
   Day( int value, Day next ){
@@ -30,8 +32,19 @@ class Day {
   void setPixel(int x,int y){
     pixelx=x;
     pixely=y;
+    pixelxrange=pixelx+100;
+    pixelyrange=pixely+90;
   }
   
+  
+  
+  int getCargo(){
+    return _cargo;}
+  void setCargo(int newCargo){
+    _cargo = newCargo;}
+  void setNext (Day newNext){
+    _nextNode = newNext;}
+}
   
   
   int getCargo(){
