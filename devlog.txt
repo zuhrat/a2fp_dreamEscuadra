@@ -27,3 +27,12 @@ All:
     and color thing
   Aleks:
     Saved everyone when i showed up and figured out how to make a box pop up
+6/12/16:
+    David:
+      Fixed value accepting box
+      Input saving to text file code(not used)
+      Bugs
+    Zuhra:
+    
+    Aleks:
+      
