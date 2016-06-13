@@ -45,9 +45,4 @@ class Day {
   void setNext (Day newNext){
     _nextNode = newNext;}
 
-<<<<<<< HEAD
-=======
-  
-  
->>>>>>> 6aac981762860e5f53604f2e147eb1452f1f0b89
 }

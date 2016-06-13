@@ -174,7 +174,9 @@ void mousePressed() {
      
      else if(mouseX < 110 && mouseY < 120 && mousePressed) {
        Home x = new Home();
-       x.draw();}
+       x.draw();
+       noLoop();
+       }
      
      else {
        Nutrition dog = new Nutrition();
