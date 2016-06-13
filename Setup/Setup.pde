@@ -138,9 +138,12 @@ void update(int x, int y) {
 void mousePressed() {      
     update(mouseX, mouseY);
   if (true) {
-    
+        if( mouseY < 120 && mousePressed) {
+       Home x = new Home();
+       x.ask();
+       }
        //If it's the NEXT button then update the month
-       if (mouseX >= 600 && mouseY >= 630 && mousePressed) {
+       else if (mouseX >= 600 && mouseY >= 630 && mousePressed) {
     
         if(X._month==12){
             sed=true;
@@ -166,11 +169,6 @@ void mousePressed() {
        X = new Calendar(X._month, 1, X._year);
          currentColor = rectColor;}
      
-     else if(mouseX < 110 && mouseY < 120 && mousePressed) {
-       Home x = new Home();
-       x.ask();
-       }
-     
      else {
        Nutrition dog = new Nutrition();
        dog.ask();
@@ -184,47 +182,20 @@ boolean overRect(int x, int y, int width, int height)  {
     return false;
   }
 }
-void Letswrite(int x,int y,int z){
-  String _fileName= "D:/" + X._month + z+ X._year + ".txt";
-  try {
-    Nutrition lemme = new Nutrition(_fileName);
-    lemme.writeToFile("" +x +"," + y );
-  }
-  catch(IOException e){
-    System.out.println("nah");
-  }
-
-}
-void divdeandconquer(String hereugo){
-    int x=0;
-    String part="";
-    String ok = ",";
-//    for(int x=0;x<hereugo.length();x++){
-      while(!hereugo.substring(x,x+1).equals(ok)){
-        part+=hereugo.substring(x,x+1);
-        x+=1;
-      }
-      locw=Integer.parseInt(part);
-      part="";
-      while(x<hereugo.length()){
-        part+=hereugo.substring(x,x+1);
-        x+=1;
-      }
-      loch=Integer.parseInt(part);
-  //  }
-}
  //USes mouseX and mouseY to determine what day it is and store the data in that day
-  void storeData(int weight, int heightt, int calor){
+    void storeData(int weight, int heightt, int calor, int BMI){
     Day now = X._head;
     for (int i = 1; i <= X._numberofdays; i++){
           if (mouseX <= now.pixelxrange && mouseX >= now.pixelx && mouseY <= now.pixelyrange && mouseY >= now.pixely){
                 now.setWeight(weight);
                 now.setHeight(heightt);
                 now.setCalor(calor);
-                pagify();
+                now.setBMI(BMI);
                 break;
             }
-         now = now.getNext();}}
+         now = now.getNext();
+    }
+  }
   void setup(){
   size(700, 720);
   background(-1);
@@ -242,3 +213,28 @@ void divdeandconquer(String hereugo){
     int b = j * j;
     ans = a/b;
    return ans;}
+      int highWeight(){
+    int x=0;
+    Day tmp = X._head;
+    for(int i =0;i<X._numberofdays;i++){
+      if(tmp._weight>x){
+        x=tmp._weight;
+      }
+      tmp=tmp.getNext();
+    }
+    return x;
+  }
+  float avgBMI(){
+    float x=0;
+    float y =0;
+    Day tmp = X._head;
+    for(int i =0;i<X._numberofdays;i++){
+      if(tmp._BMI!=0){
+        x+=tmp._BMI;
+        y+=1;
+      }
+      tmp=tmp.getNext();
+    }
+    x=(float)x/y;
+    return x;
+  }
