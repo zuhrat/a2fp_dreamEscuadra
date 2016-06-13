@@ -17,12 +17,42 @@ class Nutrition{
       path = _pathfile;
       append=append_value;
   }
-  void draw(){
-     background(0); 
+  void ask(){
+      String widthstr, heightstr;
+      widthstr = JOptionPane.showInputDialog("Enter your weight in pounds: "); 
+  heightstr = JOptionPane.showInputDialog("Enter your height in inches: ");
+  while (widthstr != "" && heightstr != ""){
+     if (widthstr == "" && heightstr == "") {
+        _weight = 0;
+        _height = 0;}
+    else {
+     _weight=parseInt(widthstr); 
+     _height=parseInt(heightstr); 
+      }
+      storeData(_weight,_height);
+      /*
+    for (int i = 1; i <2; i++)
+ JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
+*/ 
+}
 }
   
 
  
+   
+  
+ 
+  
+  void writeToFile(String text) throws IOException{
+    FileWriter lesgo = new FileWriter(path,append);
+    PrintWriter _printLine =new PrintWriter(lesgo);
+    
+    _printLine.printf("%s" + "%n", text);
+    
+    _printLine.close();
+    }
+}
+    
    
   
  
