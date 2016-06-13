@@ -10,7 +10,8 @@ boolean locked = false;
 int _weight;
 int _height;
   int BMI;
-
+int locw;
+int loch;
 int rectSize = 90;     // Diameter of rect
 boolean sed =true;
 boolean button;
@@ -181,6 +182,24 @@ void Letswrite(int x,int y,int z){
     System.out.println("nah");
   }
 
+}
+void divdeandconquer(String hereugo){
+    int x=0;
+    String part="";
+    String ok = ",";
+//    for(int x=0;x<hereugo.length();x++){
+      while(!hereugo.substring(x,x+1).equals(ok)){
+        part+=hereugo.substring(x,x+1);
+        x+=1;
+      }
+      locw=Integer.parseInt(part);
+      part="";
+      while(x<hereugo.length()){
+        part+=hereugo.substring(x,x+1);
+        x+=1;
+      }
+      loch=Integer.parseInt(part);
+  //  }
 }
  //USes mouseX and mouseY to determine what day it is and store the data in that day
   void storeData(int weight, int heightt){
