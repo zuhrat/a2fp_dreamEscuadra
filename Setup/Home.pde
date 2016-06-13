@@ -1,11 +1,13 @@
 
   class Home{
-
+    
     
   
-  void ask(){
-    JOptionPane.showMessageDialog(null, 100, "BMI",  JOptionPane.INFORMATION_MESSAGE);   
- JOptionPane.showMessageDialog(null, 200, "HIghest weight", JOptionPane.INFORMATION_MESSAGE); 
+    
+  
+  void ask(){  
+ JOptionPane.showMessageDialog(null, highWeight(), "Greatest weight for " + months[X._month], JOptionPane.INFORMATION_MESSAGE);
+ JOptionPane.showMessageDialog(null, avgBMI(), "Average BMI for "+ months[X._month], JOptionPane.INFORMATION_MESSAGE);
   }
-    }
+  }
   
