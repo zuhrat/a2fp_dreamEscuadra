@@ -1,7 +1,3 @@
-import java.io.FileWriter;
-import java.io.PrintWriter;
-import java.io.IOException;
-import java.io.FileReader;
 
 class Nutrition{
 
@@ -32,29 +28,4 @@ class Nutrition{
  JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
 
 }
-String weightExtractor(int x, int y, int z) throws Exception{
-   FileReader lesgo = new FileReader("" +x + "" +y +""+z+".txt");
-   BufferedReader br =new BufferedReader(lesgo);
-   String s;
-   s=br.readLine();
-   lesgo.close();
-   return s;
-     
- }
-  
-
- 
-   
-  
- 
-  
-  void writeToFile(String text) throws IOException{
-    FileWriter lesgo = new FileWriter(path,append);
-    PrintWriter _printLine =new PrintWriter(lesgo);
-    
-    _printLine.printf("%s" + "%n", text);
-    
-    _printLine.close();
-    }
 }
-    
