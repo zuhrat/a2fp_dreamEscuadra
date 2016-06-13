@@ -1,45 +1,47 @@
 //First calendar would be the month of january
-import javax.swing.JOptionPane; 
+import javax.swing.JOptionPane;  //necessary to use pop ups that allow input
+
+//Make a new calendar to work with
 Calendar X = new Calendar (6, 1, 2016);
+
+//Necessary Variables
 int nbOfHorizontalLines = 5;
 int nbOfVerticalLines = 7;
 String[] weekDay = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 String[] months = {"", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
-int rectX, rectY;      // Position of square button
-boolean locked = false;
-int _weight;
-int _height;
-int _calor;
-  int BMI;
+int rectX, rectY;        // Position of square button
+boolean locked = false;  //Mouse
+int _weight;             //Variable to keep track of user's weight
+int _height;             //Variable to keep track of user's height
+int _calor;              //Variable to keep track of user's caloric intake
+  int BMI;               //Variable to keep track of user's BMI
 int locw;
 int loch;
-int rectSize = 90;     // Diameter of rect
+int rectSize = 90;       // Diameter of rect, wich will be buttons
 boolean sed =true;
-boolean button;
+boolean button;  
 boolean button2;
 
-color rectColor, circleColor, baseColor;
-color rectHighlight, circleHighlight;
+color rectColor, baseColor;
+color rectHighlight;
 color currentColor;
 boolean rectOver = false;
 
+//Add as many nodes to the calendar as the number of days in that month
 void buildCalendar() {
   for (int i = 1; i <= X._numberofdays; i++) {
-    X.addLast(i);
-  }
-}
+    X.addLast(i);}}
+
 void pagify(){
   Day tmp = X._head;
   while(tmp.getNext()!= X._tail){
     Letswrite(tmp._weight,tmp._height,tmp.getCargo());
-    tmp=tmp.getNext();
-  }
+    tmp=tmp.getNext();}
   Letswrite(tmp._weight,tmp._height,tmp.getCargo());
-  Letswrite(tmp._weight,tmp._height,tmp.getCargo());
-}
+  Letswrite(tmp._weight,tmp._height,tmp.getCargo());}
     
+//Numberfy the dates of the calendar
 void numberfy(){
-  
   Day x;
   x = X._head;
   int y= X._weekday;
@@ -63,16 +65,14 @@ void numberfy(){
       if(x.getCargo()==X._numberofdays){
         break;
       }
-      y=0;
-      
-}
-}
+      y=0;}}
+
 //Since calendar is a linked list, i am adding as many nodes (days) in the month
 void draw(){
   update(mouseX, mouseY);
   background(currentColor);
  
-  
+  //make a button
   if (rectOver) {
     fill(rectHighlight);
   } else {
@@ -80,14 +80,13 @@ void draw(){
   }
   stroke(51);
   rect(rectX, rectY, rectSize, rectSize);
-  
 
-  
+//Make sure that each day of the calendar will be a pressable button
 for (int i = 0; i < 7; i++){
     for (int j = 1; j < 8; j++){
-      rectButton(i*100, j*90);
-      
-}}
+      rectButton(i*100, j*90);}}
+   
+   //Make the next and previous buttons for the calendar
    fill (255);
    textSize(40);
    text("NEXT",600,700);
@@ -96,20 +95,23 @@ for (int i = 0; i < 7; i++){
    text(X._year, 215,85);
    textSize(20);
    text(months[X._month], 350, 110);
+  
+  //Make rectangles for the name of weekdays
    for(int i =0; i<7;i++){
      textSize(15);
        text(weekDay[i],i*100+15,130);
    }
+   //Build and numebrfy the calendar
    if(sed==true){
    buildCalendar();
    pagify();
    sed=false;
    }
    numberfy();
-      //Letswrite(5);
 }
 
 
+//Helper function 
 void rectButton(int i, int j){
   rectX = i;
   rectY = j;
@@ -124,23 +126,20 @@ void rectButton(int i, int j){
   stroke(255);
   rect(rectX, rectY, 100, 90);
 }
- 
-void update(int x, int y) {
- 
-   if ( overRect(rectX, rectY, rectSize, rectSize) ) {
-    rectOver = true;
-    
-  } else {
-    rectOver = false;
-  }
-}
 
+//Function to update the x and y coordinates of the mouse
+void update(int x, int y) {
+   if ( overRect(rectX, rectY, rectSize, rectSize) ) {
+    rectOver = true;}
+    else {
+    rectOver = false;}}
+    
+//What happens if the mouse if pressed?
 void mousePressed() {      
     update(mouseX, mouseY);
-  //if (_weight == 0 || _height == 0){
-  
-
   if (true) {
+    
+       //If it's the NEXT button then update the month
        if (mouseX >= 600 && mouseY >= 630 && mousePressed) {
     
         if(X._month==12){
@@ -154,6 +153,7 @@ void mousePressed() {
          X = new Calendar(X._month, 1, X._year);
          currentColor = rectColor;}
  
+   //If its the PREV button then move back a month
      else if(mouseX < 600 && mouseX>=500 && mouseY >= 630 && mousePressed) {
      if (X._month==1){
          sed = true;
@@ -174,11 +174,7 @@ void mousePressed() {
      else {
        Nutrition dog = new Nutrition();
        dog.ask();
-      currentColor = rectColor;}}
-       
-         
-
-  }
+      currentColor = rectColor;}}}
 
 boolean overRect(int x, int y, int width, int height)  {
   if (mouseX >= x && mouseX <= x+width && 
@@ -228,11 +224,8 @@ void divdeandconquer(String hereugo){
                 pagify();
                 break;
             }
-         now = now.getNext();
-    }
-  }
-
-void setup(){
+         now = now.getNext();}}
+  void setup(){
   size(700, 720);
   background(-1);
   rectColor = color(0);
