@@ -44,13 +44,5 @@ class Day {
     _cargo = newCargo;}
   void setNext (Day newNext){
     _nextNode = newNext;}
-}
-  
-  
-  int getCargo(){
-    return _cargo;}
-  void setCargo(int newCargo){
-    _cargo = newCargo;}
-  void setNext (Day newNext){
-    _nextNode = newNext;}
+
 }

@@ -66,6 +66,7 @@ void numberfy(){
 void draw(){
   update(mouseX, mouseY);
   background(currentColor);
+ 
   
   if (rectOver) {
     fill(rectHighlight);
@@ -74,6 +75,9 @@ void draw(){
   }
   stroke(51);
   rect(rectX, rectY, rectSize, rectSize);
+  
+   Homeb();
+
   
 for (int i = 0; i < 7; i++){
     for (int j = 1; j < 8; j++){
@@ -96,6 +100,19 @@ for (int i = 0; i < 7; i++){
    }
    numberfy();
       //Letswrite(5);
+}
+
+void Homeb(){
+  update(mouseX, mouseY);
+  
+  if (rectOver) {
+    fill(rectHighlight);
+  } else {
+    fill(255, 200, 200);
+  }
+  
+  stroke(51);
+  rect(20, 30, 90, 90);
 }
 
 void rectButton(int i, int j){
@@ -153,6 +170,10 @@ void mousePressed() {
        
        X = new Calendar(X._month, 1, X._year);
          currentColor = rectColor;}
+     
+     else if(mouseX < 110 && mouseY < 120 && mousePressed) {
+       Home x = new Home();
+       x.draw();}
      
      else {
        Nutrition dog = new Nutrition();
