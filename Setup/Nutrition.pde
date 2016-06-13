@@ -1,18 +1,10 @@
 
+
 class Nutrition{
 
 
-  private String path;
-  private boolean append =false;
   Nutrition(){
     _weight=0;
-  }
-  Nutrition (String _pathfile){
-    path =_pathfile;
-  }
-  Nutrition (String _pathfile, boolean append_value){
-      path = _pathfile;
-      append=append_value;
   }
   void ask(){
       String widthstr, heightstr, calorstr;
@@ -23,9 +15,10 @@ class Nutrition{
      _weight=parseInt(widthstr); 
      _height=parseInt(heightstr);
      _calor=parseInt(calorstr); 
-      storeData(_weight,_height,_calor);
+      storeData(_weight,_height,_calor,BMI(_weight, _height));
       }     
  JOptionPane.showMessageDialog(null, BMI(_weight, _height), "BMI",  JOptionPane.INFORMATION_MESSAGE);   
 
 }
 }
+    
