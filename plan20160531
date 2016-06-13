@@ -1,0 +1,28 @@
+06/04/16:
+  Zuhra: Get the Calendar and the Day class working! 
+
+06/06/16
+  David: Get the Setup page to display a Calendar using the variables from the Calendar class. 
+  Aleks: Make sure the first day of each month starts on the right week (algorithm needed). 
+  
+06/07/16 - Very Stressful day for each of the teamates... took a break from the project.
+06/08/16 - 
+  David Zuhra Aleks: Research how to make buttons on processing. 
+
+06/10/16
+    David: Make a nutrition class in order to store weight and height and BMI for each individual.
+    Zuhra: Make a button that goes onto the next month of the year
+    Aleks: Research a way on how to store files
+
+06/11/16
+  Zuhra: Make sure each day of the month is pressable and after that make a pop up come out. 
+  Aleks: Make sure the pop up can be typable inside
+  David: Store the user input in the pop somewhere... such as a textfile.
+
+06/12/16 FINAL DAY LETS DO THIS
+  Zuhra: Fix the most ANNOYING bug about buttons
+            How come when you press on one button on the screen, other buttons are no longer pressable?
+  David: 
+        Figure out a way on how to display the user input in the calendar.
+  Aleks:
+        Help Zuhra with he bug and work on the year calendar that can update all variables. 
