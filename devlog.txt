@@ -32,7 +32,11 @@ All:
       Fixed value accepting box
       Input saving to text file code(not used)
       Bugs
+      Worked on displaying data
     Zuhra:
-    
-    Aleks:
+      Bugs, made buttons, tried making a statistic page
+      Displaying data
+   Aleks:
+      Worked on storing data
+      Bugs
       
